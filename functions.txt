@@ -1,0 +1,14 @@
+/**
+ * Sends the contents of a cell or text to ChatGPT as a prompt
+ * @param {String} input The prompt to send.
+ * @return ChatGPT Response.
+ * @customfunction
+ */
+function ChatGPT(input) {
+  console.log(input)
+  const systemContent = "You are a helpful assistant.";
+  return Array.isArray(input) ?
+    input.flat().map(text => fetchData(systemContent, text)) :
+    fetchData(systemContent, input);
+
+}
